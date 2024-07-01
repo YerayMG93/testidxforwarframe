@@ -1,0 +1,52 @@
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import {HomeComponent} from './pages/home/home.component';
+import { HeaderComponent } from './pages/header/header.component';
+import { FooterComponent } from './pages/footer/footer.component';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, HomeComponent, HeaderComponent, FooterComponent],
+  template: `
+	<main>
+		<app-header></app-header>
+		<router-outlet></router-outlet>
+		<app-footer></app-footer>
+	</main>
+  `,
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  title = 'Home';
+}
+/*
+TODO:
+HOME
+	CREAR ARCHIVO GUARDADO LOCAL LISTA OBJETOS MYLIST
+	RESUMEN RECURSOS NECESARIOS PARA CRAFTEAR TODO DE MYLIST
+ITEM
+	DESCRIPCION
+	RECURSOS PARA FABRICAR
+	NOMBRE
+	IMAGEN
+	BOTON PARA AÑADIR A MYLIST
+	BOTON PARA ELIMINAR DE MYLIST
+LIST
+	BARRA DE BUSQUEDA
+  ITEMCARD
+MYLIST
+  ITEMCARD
+		BOTON PARA COMPLETAR
+COMPLETEDLIST
+	ITEMCARD
+		BOTON PARA ELIMINAR DE COMPLETAR
+ITEMCARD
+	IMAGEN
+	NOMBRE
+	BOTONES PARA AÑADIR O QUITAR DE MYLIST/COMPLETAR
+HEADER
+	MENU PARA USUARIOS PC
+FOOTER
+	MENU PARA USUARIOS MOVIL
+*/
