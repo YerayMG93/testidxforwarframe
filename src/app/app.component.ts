@@ -1,4 +1,4 @@
-import { Component, VERSION } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {HomeComponent} from './pages/home/home.component';
 import { HeaderComponent } from './pages/header/header.component';
@@ -18,7 +18,6 @@ import { HeaderComponent } from './pages/header/header.component';
 })
 export class AppComponent {
   title = 'Home';
-  localStorage.setItem('myItems', '[]');
 }
 /*
 TODO:
