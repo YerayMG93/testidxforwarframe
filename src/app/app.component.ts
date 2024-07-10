@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {HomeComponent} from './pages/home/home.component';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './pages/header/header.component';
+import { LocalService } from './Services/local.service';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +20,23 @@ import { HeaderComponent } from './pages/header/header.component';
 })
 export class AppComponent {
   title = 'Home';
+  constructor(private localService: LocalService) {
+		if (localService.getArrayData('mylist') == null) {
+			localService.saveArrayData('mylist', []);
+		}
+		if (localService.getArrayData('completedlist') == null) {
+			localService.saveArrayData('completedlist', []);
+		}
+	}
+	goTo(page: string) {
+		RouterModule.forRoot([
+			{
+				path: page,
+				component: HomeComponent,
+				title: page
+			}
+		]);
+	}
 }
 /*
 TODO:
