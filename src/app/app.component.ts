@@ -1,24 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, VERSION } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {HomeComponent} from './pages/home/home.component';
 import { HeaderComponent } from './pages/header/header.component';
-import { FooterComponent } from './pages/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, HeaderComponent, FooterComponent],
+  imports: [RouterOutlet, HomeComponent, HeaderComponent],
   template: `
 	<main>
-		<app-header></app-header>
+		<app-header id=header></app-header>
 		<router-outlet></router-outlet>
-		<app-footer></app-footer>
+		<app-header id=footer></app-header>
 	</main>
   `,
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'Home';
+  localStorage.setItem('myItems', '[]');
 }
 /*
 TODO:
