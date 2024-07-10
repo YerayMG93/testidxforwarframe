@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { LocalService } from './Services/local.service';
@@ -27,15 +27,6 @@ export class AppComponent {
 		if (localService.getArrayData('completedlist') == null) {
 			localService.saveArrayData('completedlist', []);
 		}
-	}
-	goTo(page: string) {
-		RouterModule.forRoot([
-			{
-				path: page,
-				component: HomeComponent,
-				title: page
-			}
-		]);
 	}
 }
 /*
