@@ -4,3 +4,10 @@
 <p>Here is what you need to craft the things you want.</p>
 
 <p>{{title}}</p>
+
+<ul>
+  <li *ngFor="let item of resourcesNeeded">{{item}}</li>
+</ul>
+<p *ngIf="resourcesNeeded.length === 0">No resources needed.</p>
+
+<p>test</p>
