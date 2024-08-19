@@ -3,12 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { LocalService } from './Services/local/local.service';
-import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, HeaderComponent, MatCardModule],
+  imports: [RouterOutlet, HomeComponent, HeaderComponent],
   template: `
 	<main>
 		<app-header id=header></app-header>
