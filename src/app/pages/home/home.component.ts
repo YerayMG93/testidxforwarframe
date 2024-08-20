@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiServiceService } from '../../Services/api/api-service.service';
+import { LocalService } from '../../Services/local/local.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent {
   title = 'puto';
   resourcesNeeded = {};
   apiService: ApiServiceService;
-  constructor(apiService: ApiServiceService) {
+  constructor(localService: LocalService, apiService: ApiServiceService) {
     this.apiService = apiService;
   }
   ngOnInit() {

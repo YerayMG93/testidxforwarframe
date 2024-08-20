@@ -1,9 +1,11 @@
 <h1>{{title}}</h1>
 
-<form>
+<form id="searchbar" action="javascript:void(0);">
   <label for="fname">Filter by name:</label><br>
   <input type="text" id="fname" name="fname" placeholder="write what you search for">
-  <input type="button" value="Search" (click)="search()">
+  <input type="submit" value="Search" (click)="search()">
 </form>
 
-<mat-card *ngFor="let item of list">{{item.name}}: {{item.quantity}} test</mat-card>
+<p [@If]="list.length === 0">Empty list</p>
+
+@for (item of list; track item.name) {    <mat-card>{{item.name}}: {{item.quantity}} test</mat-card>  }

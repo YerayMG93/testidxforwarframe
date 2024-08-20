@@ -12,20 +12,19 @@ import { ApiServiceService } from '../../Services/api/api-service.service';
 })
 export class ListComponent {
   title = 'Search list';
+  test = ""
   list:any[] = [];
   error = "";
   myList:any[] = [];
-  constructor(private localService: LocalService, apiService: ApiServiceService) {
+  constructor(private localService: LocalService) {
     this.myList = localService.getArrayData('mylist');
-    apiService.searchItems("rubico").subscribe(data => {
-      this.list = data;
-    }).add(() => {
-      console.log("done");
-    });
+    
   }
     search() {
       const fname = document.getElementById('fname') as HTMLInputElement;
       const searchTerm = fname.value;
+      console.log(searchTerm);
+      this.test = searchTerm;
       }
   
   ngOnInit() {

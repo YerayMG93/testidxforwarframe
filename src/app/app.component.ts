@@ -20,12 +20,7 @@ import { LocalService } from './Services/local/local.service';
 export class AppComponent {
   title = 'Home';
   constructor(private localService: LocalService) {
-		if (localService.getArrayData('mylist') == null) {
-			localService.saveArrayData('mylist', []);
-		}
-		if (localService.getArrayData('completedlist') == null) {
-			localService.saveArrayData('completedlist', []);
-		}
+		
 	}
 }
 /*
