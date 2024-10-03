@@ -11,13 +11,11 @@ import { LocalService } from '../../Services/local/local.service';
 })
 export class HomeComponent {
   title = 'puto';
-  resourcesNeeded = {};
-  apiService: ApiServiceService;
-  constructor(localService: LocalService, apiService: ApiServiceService) {
-    this.apiService = apiService;
+  resourcesNeeded:any;
+  constructor() {
   }
   ngOnInit() {
-    this.resourcesNeeded = this.apiService.itemApi;
+    //this.resourcesNeeded = this.apiService.searchItems(this.localService.getArrayData("list"));
   }
   
 }

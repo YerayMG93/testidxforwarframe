@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './pages/header/header.component';
-import { LocalService } from './Services/local/local.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +18,7 @@ import { LocalService } from './Services/local/local.service';
 })
 export class AppComponent {
   title = 'Home';
-  constructor(private localService: LocalService) {
+  constructor() {
 		
 	}
 }

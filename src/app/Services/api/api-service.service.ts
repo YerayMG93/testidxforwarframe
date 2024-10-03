@@ -25,7 +25,16 @@ export class ApiServiceService {
     // https://api.warframestat.us/items/search/Resource/?by=type&only=name&language=en
 }
 
-public searchItems(searchTerm: string) {
+public searchItems(searchTerm: Array<string>) {
+  let newSearch = urlResourceNames;
+  let result: any[] = [];
+  for (let i = 0; i < searchTerm.length; i++) {
+    result.push(this.searchItem(searchTerm[i]));
+  }
+  return result;
+}
+
+public searchItem(searchTerm: string) {
   let newSearch = urlitems;
   newSearch.replace("item",searchTerm);
   return this.http.get<Item[]>(newSearch);
