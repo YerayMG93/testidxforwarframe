@@ -1,30 +1,35 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { LocalService } from '../../Services/local/local.service';
+import { FormsModule } from '@angular/forms';
 import { ApiServiceService } from '../../Services/api/api-service.service';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [MatCardModule],
+  imports: [MatCardModule, FormsModule],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
 export class ListComponent {
   title = 'Search list';
-  test = ""
   list:any[] = [];
   error = "";
   myList:any[] = [];
+  fname = "";
   constructor(private localService: LocalService) {
     this.myList = localService.getArrayData('mylist');
     
   }
     search() {
-      const fname = document.getElementById('fname') as HTMLInputElement;
-      const searchTerm = fname.value;
-      console.log(searchTerm);
-      this.test = searchTerm;
+      console.log(this.fname);
+      this.list = this.myList.filter(item => item.name.includes(this.fname));
+      console.log(this.list);
+      if (this.list.length === 0) {
+        this.error = "No items found";
+      } else {
+        this.error = "";
+      }
       }
   
   ngOnInit() {
