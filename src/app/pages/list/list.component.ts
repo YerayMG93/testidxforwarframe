@@ -14,7 +14,7 @@ import { ApiServiceService } from '../../Services/api/api-service.service';
 export class ListComponent {
   title = 'Search list';
   list:any[] = [];
-  error = "";
+  error = "Start searching for what you want to craft";
   myList:any[] = [];
   fname = "";
   constructor(private localService: LocalService) {
