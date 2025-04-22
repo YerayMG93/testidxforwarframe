@@ -10,7 +10,7 @@ import { LocalService } from '../../Services/local/local.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  title = 'puto';
+  title = 'test';
   resourcesNeeded:any;
   constructor() {
   }
