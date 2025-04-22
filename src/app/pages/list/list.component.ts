@@ -4,6 +4,7 @@ import { LocalService } from '../../Services/local/local.service';
 import { FormsModule } from '@angular/forms';
 import { ApiServiceService } from '../../Services/api/api-service.service';
 
+
 @Component({
   selector: 'app-list',
   standalone: true,
