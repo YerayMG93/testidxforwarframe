@@ -18,7 +18,7 @@ export class ListComponent {
   error = "Start searching for what you want to craft";
   myList:any[] = [];
   fname = "";
-  constructor(private localService: LocalService) {
+  constructor(private localService: LocalService, apiService: ApiServiceService) {
     this.myList = localService.getArrayData('mylist');
     
   }

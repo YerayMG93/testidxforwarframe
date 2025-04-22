@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './pages/header/header.component';
 
 
@@ -8,7 +7,7 @@ import { HeaderComponent } from './pages/header/header.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HomeComponent, HeaderComponent, RouterModule],
+  imports: [HeaderComponent, RouterModule],
   template: `
 	<main>
 		<app-header id=header></app-header>

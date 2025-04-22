@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 interface Item {
@@ -11,14 +11,12 @@ interface Item {
   buildQuantity: number;
   components: Array<any>;
 }
-
-Injectable({
-  providedIn: 'root'
-})
-
 let urlResourceNames:string = "https://api.warframestat.us/items/search/Resource/?by=type&only=name&language=en";
 let urlitems:string = "https://api.warframestat.us/items/search/item/?language=en";
 
+@Injectable({
+  providedIn: 'root'
+})
 export class ApiServiceService {
   itemApi:string = "https://api.warframestat.us/items/";
   constructor(private http: HttpClient) {

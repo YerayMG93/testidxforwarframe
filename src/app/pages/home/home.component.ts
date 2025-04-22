@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../../Services/api/api-service.service';
 import { LocalService } from '../../Services/local/local.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
   title = 'test';
-  resourcesNeeded:any;
+  resourcesNeeded:any = [];
   constructor() {
   }
   ngOnInit() {
