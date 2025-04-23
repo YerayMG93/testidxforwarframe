@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 interface Item {
   name: string;
@@ -35,10 +34,8 @@ public searchItems(searchTerm: Array<string>) {
 
 public searchItem(searchTerm: string) {
   let newSearch = urlitems;
-  console.log(searchTerm);
   newSearch+= searchTerm;
   newSearch+= "/?language=en";
-  console.log(newSearch);
   return this.http.get(newSearch);
 }
 

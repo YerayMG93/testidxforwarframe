@@ -3,12 +3,13 @@ import { MatCardModule } from '@angular/material/card';
 import { LocalService } from '../../Services/local/local.service';
 import { FormsModule } from '@angular/forms';
 import { ApiServiceService } from '../../Services/api/api-service.service';
+import { ItemCardComponent } from '../item-card/item-card.component';
 
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [MatCardModule, FormsModule],
+  imports: [MatCardModule, FormsModule, ItemCardComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
@@ -27,19 +28,16 @@ export class ListComponent {
   
     search() {
       this.api.searchItem(this.fname).subscribe((data:any) => {
-        console.log(data);
         this.list = data.filter((item:any) =>
           item.components && item.components.length > 0
         );
-        console.log(this.list);
+        if (this.list.length == 0) {
+          this.error = "No items found";
+        } else {
+          this.error = "";
+        }
       });
-      
-      if (this.list.length === 0) {
-        this.error = "No items found";
-      } else {
-        this.error = "";
-      }
-      }
+    }
   
   ngOnInit() {
     this.myList = this.localService.getArrayData('mylist');

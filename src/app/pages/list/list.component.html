@@ -8,4 +8,6 @@
 
 <p>{{error}}</p>
 
-@for (item of list; track item.name) {    <mat-card>{{item.name}}: {{item.quantity}} test</mat-card>  }
+@for (item of list; track item.name) {
+  <app-item-card [item]="item"></app-item-card>
+}

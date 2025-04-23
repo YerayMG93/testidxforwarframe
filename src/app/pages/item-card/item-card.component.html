@@ -1,1 +1,22 @@
-<p>item-card works!</p>
+<mat-card>
+    <img [src]="item.wikiaThumbnail">
+    <p>{{item.name}}</p>
+
+    @if (!isMyList && !isCompleted) {
+        <button (click)="addToMyList()">Add To List</button>
+    }
+
+    @if (isMyList && !isCompleted) {
+        <button (click)="MarkCompleted()">Mark Completed</button>
+    }
+
+    @if (isMyList && !isCompleted) {
+        <button (click)="removeFromMyList()">Remove From My List</button>
+    }
+
+    @if (isMyList && isCompleted) {
+        <button (click)="unMarkCompleted()">Unmark Completed</button>
+    }
+
+
+</mat-card>
