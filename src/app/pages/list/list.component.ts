@@ -18,14 +18,22 @@ export class ListComponent {
   error = "Start searching for what you want to craft";
   myList:any[] = [];
   fname = "";
+  api: ApiServiceService;
   constructor(private localService: LocalService, apiService: ApiServiceService) {
     this.myList = localService.getArrayData('mylist');
+    this.api = apiService;
     
   }
+  
     search() {
-      console.log(this.fname);
-      this.list = this.myList.filter(item => item.name.includes(this.fname));
-      console.log(this.list);
+      this.api.searchItem(this.fname).subscribe((data:any) => {
+        console.log(data);
+        this.list = data.filter((item:any) =>
+          item.components && item.components.length > 0
+        );
+        console.log(this.list);
+      });
+      
       if (this.list.length === 0) {
         this.error = "No items found";
       } else {

@@ -12,7 +12,7 @@ interface Item {
   components: Array<any>;
 }
 let urlResourceNames:string = "https://api.warframestat.us/items/search/Resource/?by=type&only=name&language=en";
-let urlitems:string = "https://api.warframestat.us/items/search/item/?language=en";
+let urlitems:string = "https://api.warframestat.us/items/search/";
 
 @Injectable({
   providedIn: 'root'
@@ -35,9 +35,14 @@ public searchItems(searchTerm: Array<string>) {
 
 public searchItem(searchTerm: string) {
   let newSearch = urlitems;
-  newSearch.replace("item",searchTerm);
-  return this.http.get<Item[]>(newSearch);
+  console.log(searchTerm);
+  newSearch+= searchTerm;
+  newSearch+= "/?language=en";
+  console.log(newSearch);
+  return this.http.get(newSearch);
 }
+
+
 public saveArrayData(key: string, value: string[]) {
   localStorage.setItem(key, JSON.stringify(value));
 }
