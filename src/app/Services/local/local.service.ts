@@ -7,6 +7,12 @@ export class LocalService {
 
   constructor() { }
   
+  public saveObjectData(key: string, value: object) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+  public getObjectData(key: string) {
+    return JSON.parse(localStorage.getItem(key) || '{}');
+  }
 
   public saveData(key: string, value: string) {
     localStorage.setItem(key, value);

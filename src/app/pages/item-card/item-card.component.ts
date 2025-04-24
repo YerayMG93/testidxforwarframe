@@ -13,57 +13,48 @@ import { LocalService } from '../../Services/local/local.service';
 
 export class ItemCardComponent implements OnInit, OnChanges{
   @Input() item: any;
-  isMyList = false;
-  isCompleted = false;
   localService: LocalService;
   constructor(private ls: LocalService){
     this.localService = ls;
-    // Do not use this.item in the constructor.
   }
 
   ngOnInit(): void {
-    console.log(this.item); // This is where you should log the item
-
-    if (this.localService.getArrayData('mylist').length !== 0) {
-      if (this.localService.getArrayData('mylist').includes(this.item.name)) {
-        this.isMyList = true;
-      }
+    console.log(this.item);
+    console.log(this.localService.getArrayData(this.item.name));
+    if (this.localService.getArrayData(this.item.name).length !== 0) {
+      this.updateStatus();
     }
-    if (this.localService.getArrayData('completed').length !== 0) {
-      if (this.localService.getArrayData('completed').includes(this.item.name)) {
-        this.isCompleted = true;
-      }
+  }
+
+  updateStatus(){
+    if (this.localService.getArrayData(this.item.name).isMyList == true) {
+      this.item.isMyList = true;
+    }
+    if (this.localService.getArrayData(this.item.name).isCompleted == true) {
+      this.item.isCompleted = true;
     }
   }
 
   addToMyList(){
-    let myList = this.localService.getArrayData('mylist');
-    myList.push(this.item.name);
-    this.localService.saveArrayData('mylist', myList);
-    this.isMyList = true;
+    this.item.isMyList = true;
+    this.localService.saveObjectData(this.item.name, this.item);
   }
   MarkCompleted(){
-    let completed = this.localService.getArrayData('completed');
-    completed.push(this.item.name);
-    this.localService.saveArrayData('completed', completed);
-    this.isCompleted = true;
+    this.item.isCompleted = true;
+    this.localService.saveObjectData(this.item.name, this.item);
   }
   removeFromMyList(){
-    let myList = this.localService.getArrayData('mylist');
-    myList.splice(myList.indexOf(this.item.name), 1);
-    this.localService.saveArrayData('mylist', myList);
-    this.isMyList = false;
+    this.localService.removeData(this.item.name);
+    this.item.isMyList = false;
   }
   unMarkCompleted(){
-    let completed = this.localService.getArrayData('completed');
-    completed.splice(completed.indexOf(this.item.name), 1);
-    this.localService.saveArrayData('completed', completed);
-    this.isCompleted = false;
+    this.item.isCompleted = false;
+    this.localService.saveObjectData(this.item.name, this.item);
   }
   
   ngOnChanges(changes: SimpleChanges): void {
       if(changes['item']){
-        console.log("item changed")
+        this.updateStatus();
       }
   }
 }
