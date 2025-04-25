@@ -1,1 +1,15 @@
-<p>my-list works!</p>
+<form id="searchbar" action="javascript:void(0);">
+    <label for="fname">Filter by name:</label><br>
+    <input type="text" id="fname" name="fname" [(ngModel)]="fname" placeholder="write what you search for">
+    <input type="submit" value="Search" (click)="loadItems(fname)">
+</form>
+
+@if (itemList.length == 0){
+    <p> This place is empty, go grab things in the search page.</p>
+}
+@else {
+    <p> Everything you listed is here: </p>
+}
+@for (item of itemList; track item.name) {
+    <app-item-card [item]="item"></app-item-card>
+  }

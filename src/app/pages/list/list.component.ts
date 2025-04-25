@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { LocalService } from '../../Services/local/local.service';
 import { FormsModule } from '@angular/forms';
 import { ApiServiceService } from '../../Services/api/api-service.service';
 import { ItemCardComponent } from '../item-card/item-card.component';
@@ -13,6 +12,7 @@ import { ItemCardComponent } from '../item-card/item-card.component';
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
+
 export class ListComponent {
   title = 'Search list';
   list:any[] = [];
@@ -20,10 +20,9 @@ export class ListComponent {
   myList:any[] = [];
   fname = "";
   api: ApiServiceService;
-  constructor(private localService: LocalService, apiService: ApiServiceService) {
-    this.myList = localService.getArrayData('mylist');
+
+  constructor(private apiService: ApiServiceService) {
     this.api = apiService;
-    
   }
   
     search() {
@@ -38,8 +37,4 @@ export class ListComponent {
         }
       });
     }
-  
-  ngOnInit() {
-    this.myList = this.localService.getArrayData('mylist');
-  }
 }

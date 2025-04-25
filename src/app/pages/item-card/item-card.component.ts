@@ -19,8 +19,6 @@ export class ItemCardComponent implements OnInit, OnChanges{
   }
 
   ngOnInit(): void {
-    console.log(this.item);
-    console.log(this.localService.getArrayData(this.item.name));
     if (this.localService.getArrayData(this.item.name).length !== 0) {
       this.updateStatus();
     }
@@ -36,6 +34,12 @@ export class ItemCardComponent implements OnInit, OnChanges{
   }
 
   addToMyList(){
+    let list = this.localService.getArrayData('list');
+    if(list.length == 0){
+      list = [];
+    }
+    list.push(this.item.name);
+    this.localService.saveArrayData('list', list);
     this.item.isMyList = true;
     this.localService.saveObjectData(this.item.name, this.item);
   }
@@ -44,6 +48,9 @@ export class ItemCardComponent implements OnInit, OnChanges{
     this.localService.saveObjectData(this.item.name, this.item);
   }
   removeFromMyList(){
+    let list = this.localService.getObjectData('list');
+    list.splice(list.indexOf(this.item.name), 1);
+    this.localService.saveArrayData('list', list);
     this.localService.removeData(this.item.name);
     this.item.isMyList = false;
   }

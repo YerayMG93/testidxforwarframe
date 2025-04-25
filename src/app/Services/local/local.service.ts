@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,7 @@ export class LocalService {
   public saveArrayData(key: string, value: string[]) {
     localStorage.setItem(key, JSON.stringify(value));
   }
-
-  public getArrayData(key: string) {
+  public getArrayData(key:string){
     return JSON.parse(localStorage.getItem(key) || '[]');
   }
 
