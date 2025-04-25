@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { ItemCardComponent } from '../item-card/item-card.component';
 import { LocalService } from '../../Services/local/local.service';
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   templateUrl: './my-list.component.html',
   styleUrl: './my-list.component.css'
 })
-export class MyListComponent {
+export class MyListComponent implements OnInit{
   itemList: any[] = [];
   fname: any;
 
@@ -37,7 +37,11 @@ export class MyListComponent {
           this.itemList.push(this.localStorage.getObjectData(list[i]));
       }
     }
-    
-    
+  }
+
+  ngOnInit(): void{
+    document.addEventListener('click', (event) => {
+      if((event.target as HTMLElement).nodeName == "BUTTON") this.loadItems(this.fname);
+    });
   }
 }
