@@ -1,7 +1,14 @@
 <mat-card>
     <img [src]="item.wikiaThumbnail">
     <p>{{item.name}}</p>
-
+    @if(!item.isCompleted){
+    <p>Resources needed:</p>
+        <ul>
+            @for(res of item.components; track res.name){
+                <li>{{res.name}}: {{res.itemCount}}</li>
+            }
+        </ul>
+    }
     @if (!item.isMyList && !item.isCompleted) {
         <button (click)="addToMyList()">Add To List</button>
     }

@@ -23,9 +23,9 @@ export class HomeComponent implements OnInit{
     }
   }
     sumRessources(itemSearch:string){
-      let item = this.ls.getObjectData(itemSearch);
-      if(!item.isCompleted){
-        let ressources = item.components;
+      let tempItem = this.ls.getObjectData(itemSearch);
+      if(!tempItem.isCompleted){
+        let ressources = tempItem.components;
         for (let item of ressources){
           console.log(item);
           if (this.resourcesNeeded.has(item.name)){
