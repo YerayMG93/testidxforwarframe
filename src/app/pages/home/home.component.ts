@@ -22,12 +22,12 @@ export class HomeComponent implements OnInit{
       this.sumRessources(items[index]);
     }
   }
-      //introduce ressources with key name and amount.
     sumRessources(itemSearch:string){
       let item = this.ls.getObjectData(itemSearch);
       if(!item.isCompleted){
         let ressources = item.components;
         for (let item of ressources){
+          console.log(item);
           if (this.resourcesNeeded.has(item.name)){
             this.resourcesNeeded.set(item.name, this.resourcesNeeded.get(item.name)! + item.itemCount);
           } else {
