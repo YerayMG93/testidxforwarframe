@@ -6,7 +6,9 @@
   <input type="submit" value="Search" (click)="search()">
 </form>
 
-<p>{{error}}</p>
+@if (error){
+  <p>{{error}}</p>
+}
 
 @for (item of list; track item.name) {
   <app-item-card [item]="item"></app-item-card>

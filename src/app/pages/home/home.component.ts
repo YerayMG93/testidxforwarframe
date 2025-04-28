@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiServiceService } from '../../Services/api/api-service.service';
 import { LocalService } from '../../Services/local/local.service';
 import { CommonModule } from '@angular/common';
 
@@ -10,13 +9,32 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   title = 'test';
-  resourcesNeeded:any = [];
-  constructor() {
+  resourcesNeeded:Map<string, number> = new Map();
+  ls: LocalService;
+  constructor(localStorage: LocalService) {
+    this.ls = localStorage;
   }
   ngOnInit() {
-    //this.resourcesNeeded = this.apiService.searchItems(this.localService.getArrayData("list"));
+    let items = this.ls.getArrayData('list');
+    for (let index = 0; index < items.length; index++) {
+      this.sumRessources(items[index]);
+    }
   }
+      //introduce ressources with key name and amount.
+    sumRessources(itemSearch:string){
+      let item = this.ls.getObjectData(itemSearch);
+      if(!item.isCompleted){
+        let ressources = item.components;
+        for (let item of ressources){
+          if (this.resourcesNeeded.has(item.name)){
+            this.resourcesNeeded.set(item.name, this.resourcesNeeded.get(item.name)! + item.itemCount);
+          } else {
+            this.resourcesNeeded.set(item.name, item.itemCount);
+          }
+        }
+      }
+    }
   
 }

@@ -3,7 +3,6 @@ import { MatCardModule } from '@angular/material/card';
 import { ItemCardComponent } from '../item-card/item-card.component';
 import { LocalService } from '../../Services/local/local.service';
 import { FormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-my-list',
