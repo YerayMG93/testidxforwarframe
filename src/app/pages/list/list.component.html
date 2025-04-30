@@ -12,6 +12,8 @@
   <p>{{error}}</p>
 }
 
-@for (item of list; track item.name) {
-  <app-item-card [item]="item"></app-item-card>
-}
+<div class="list">
+  @for (item of list; track item.name) {
+    <app-item-card [item]="item"></app-item-card>
+  }
+</div>

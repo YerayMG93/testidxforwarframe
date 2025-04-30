@@ -23,4 +23,5 @@ body{
   padding: 1em 0em 1em 0em;
   position: fixed;
   top: 0;
+  z-index: 100;
 }

@@ -1,10 +1,8 @@
 <mat-card>
-    <div class="image" id="container">
-        <img [src]="item.wikiaThumbnail"/>
-    </div>
-    <div class="name" id="container">{{item.name}}</div>
+    <img class="card-image" [src]="item.wikiaThumbnail"/>
+    <div class="card-title">{{item.name}}</div>
     @if(!item.isCompleted){
-    <div class="resources" id="container">
+    <div class="card-content">
         <p>Resources needed:</p>
         <ul>
             @for(res of item.components; track res.name){
@@ -13,16 +11,13 @@
         </ul>
     </div>
     }
-    <div class="button" id="container">
+    <div class="card-buttons">
         @if (!item.isMyList && !item.isCompleted) {
             <button (click)="addToMyList()">Add To List</button>
         }
     
         @if (item.isMyList && !item.isCompleted) {
             <button (click)="MarkCompleted()">Mark Completed</button>
-        }
-    
-        @if (item.isMyList && !item.isCompleted) {
             <button (click)="removeFromMyList()">Remove From My List</button>
         }
     
