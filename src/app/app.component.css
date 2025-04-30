@@ -13,6 +13,7 @@ body{
 }
 #content{
   display: inline-block;
+  padding-top: 3em;
 }
 
 #header {
@@ -20,8 +21,7 @@ body{
   width: 100%;
   background-color: #333333aa;
   color: #fff;
-  text-align: center;
   padding: 1em 0em 1em 0em;
-  position: relative;
+  position: fixed;
   top: 0;
 }
