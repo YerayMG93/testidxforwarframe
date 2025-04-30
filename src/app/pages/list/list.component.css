@@ -1,7 +1,31 @@
 #searchbar{
-    display: inline-block;
+    display: inline;
 }
-img{
-    width: 25%;
-    height: 25%;
+title{
+    display: inline;
+}
+form > input{
+    display: inline;
+    width: fit-content;
+}
+.custom-loader {
+    position: relative;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:8px solid;
+    border-color:#E4E4ED;
+    border-right-color: #766DF4;
+    animation:s2 1s infinite linear;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  @keyframes s2 {to{transform: rotate(1turn)}}
+
+.hidden{
+    display: none;
 }

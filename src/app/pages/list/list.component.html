@@ -6,6 +6,8 @@
   <input type="submit" value="Search" (click)="search()">
 </form>
 
+<div class="hidden" id="loading"></div>
+
 @if (error){
   <p>{{error}}</p>
 }

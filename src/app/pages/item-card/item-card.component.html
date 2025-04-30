@@ -1,29 +1,33 @@
 <mat-card>
-    <img [src]="item.wikiaThumbnail">
-    <p>{{item.name}}</p>
+    <div class="image" id="container">
+        <img [src]="item.wikiaThumbnail"/>
+    </div>
+    <div class="name" id="container">{{item.name}}</div>
     @if(!item.isCompleted){
-    <p>Resources needed:</p>
+    <div class="resources" id="container">
+        <p>Resources needed:</p>
         <ul>
             @for(res of item.components; track res.name){
                 <li>{{res.name}}: {{res.itemCount}}</li>
             }
         </ul>
+    </div>
     }
-    @if (!item.isMyList && !item.isCompleted) {
-        <button (click)="addToMyList()">Add To List</button>
-    }
-
-    @if (item.isMyList && !item.isCompleted) {
-        <button (click)="MarkCompleted()">Mark Completed</button>
-    }
-
-    @if (item.isMyList && !item.isCompleted) {
-        <button (click)="removeFromMyList()">Remove From My List</button>
-    }
-
-    @if (item.isMyList && item.isCompleted) {
-        <button (click)="unMarkCompleted()">Unmark Completed</button>
-    }
-
-
+    <div class="button" id="container">
+        @if (!item.isMyList && !item.isCompleted) {
+            <button (click)="addToMyList()">Add To List</button>
+        }
+    
+        @if (item.isMyList && !item.isCompleted) {
+            <button (click)="MarkCompleted()">Mark Completed</button>
+        }
+    
+        @if (item.isMyList && !item.isCompleted) {
+            <button (click)="removeFromMyList()">Remove From My List</button>
+        }
+    
+        @if (item.isMyList && item.isCompleted) {
+            <button (click)="unMarkCompleted()">Unmark Completed</button>
+        }
+    </div>
 </mat-card>

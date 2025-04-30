@@ -26,6 +26,11 @@ export class ListComponent {
   }
   
     search() {
+      this.list = [];
+        const loading = document.getElementById('loading');
+        loading?.classList.add("custom-loader");
+        loading?.classList.remove("hidden");
+
       this.api.searchItem(this.fname).subscribe((data:any) => {
         this.list = data.filter((item:any) =>
           item.components && item.components.length > 0
@@ -35,6 +40,8 @@ export class ListComponent {
         } else {
           this.error = "";
         }
+        loading?.classList.remove("custom-loader");
+        loading?.classList.add("hidden");
       });
     }
 }
