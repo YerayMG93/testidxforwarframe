@@ -1,5 +1,5 @@
 ul {
-    display: flex;
+    display: block;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -10,8 +10,9 @@ ul {
 }
 li {
     display: inline-block;
-    width: 25%;
+    width: 24%;
+    gap: 0em;
+    padding: 0em;
+    margin: 0em;
     text-align: center;
-}
-
 }
