@@ -16,3 +16,8 @@ li {
     margin: 0em;
     text-align: center;
 }
+.active-link {
+    font-weight: bold;
+    color: #007bff; 
+    border-bottom: 2px solid #007bff;
+  }

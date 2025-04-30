@@ -1,3 +1,6 @@
+<h1>
+{{title}}
+</h1>
 <form id="searchbar" action="javascript:void(0);">
     <label for="fname">Filter by name:</label><br>
     <input type="text" id="fname" name="fname" [(ngModel)]="fname" placeholder="write what you search for">
@@ -10,6 +13,8 @@
 @else {
     <p> Everything you listed is here: </p>
 }
-@for (item of itemList; track item.name) {
-    <app-item-card [item]="item"></app-item-card>
-  }
+<div class="list">
+    @for (item of itemList; track item.name) {
+        <app-item-card [item]="item"></app-item-card>
+      }
+</div>

@@ -1,6 +1,9 @@
 #searchbar{
     display: inline;
 }
+h1 {
+    margin-top: 3em;
+  }
 title{
     display: inline;
 }

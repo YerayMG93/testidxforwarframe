@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 export class MyListComponent implements OnInit{
   itemList: any[] = [];
   fname: any;
+  title = 'My list';
 
   constructor(private localStorage: LocalService) {
     this.loadItems();

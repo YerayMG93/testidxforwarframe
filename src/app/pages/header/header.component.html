@@ -1,6 +1,6 @@
 <ul class="header">
-  <li><a [routerLink]="['/']">Home</a></li>
-  <li><a [routerLink]="['/list']">Search</a></li>
-  <li><a [routerLink]="['/mylist']">My list</a></li>
-  <li><a [routerLink]="['/completedlist']">Completed</a></li>
+  <li><a [routerLink]="['/']" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+  <li><a [routerLink]="['/list']" routerLinkActive="active-link" >Search</a></li>
+  <li><a [routerLink]="['/mylist']" routerLinkActive="active-link" >My list</a></li>
+  <li><a [routerLink]="['/completedlist']" routerLinkActive="active-link" >Completed</a></li>
 </ul>

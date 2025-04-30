@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 export class CompletedListComponent {
   itemList: any[] = [];
   fname: any;
+  title = 'Completed List';
 
   constructor(private localStorage: LocalService) {
     this.loadItems();
