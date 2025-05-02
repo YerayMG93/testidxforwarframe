@@ -16,7 +16,8 @@ app-item-card{
     flex-direction:column;
     align-items: stretch;
     float: left;
-    width: 25%;
+    gap: 1rem;
+    width: 100%;
     height: 50%;
 }
 @media (max-width: 600px) {

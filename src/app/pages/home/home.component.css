@@ -1,3 +1,14 @@
 h1 {
-  margin-top: 3em;
+  margin-top: 4.5em;
+  text-align: center;
+}
+
+body {
+  background-color: black;
+  color: white;
+  text-align: justify;
+}
+
+p {
+  margin: 2%;
 }

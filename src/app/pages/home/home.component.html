@@ -1,15 +1,14 @@
+<body>
+  <h1>Welcome Tenno</h1>
 
-<h1>Welcome Tenno</h1>
-
-<p>Here is what you need to craft the things you want.</p>
-
-<ul>
-  @for( res of resourcesNeeded | keyvalue; track res.key){
-    @if(res.key != "Blueprint"){
-      <li>{{res.key}}: {{res.value}}</li>
+  <p>Here is what you need to craft the things you want.</p>
+  
+  <ul>
+    @for( res of resourcesNeeded | keyvalue; track res.key){
+      @if(res.key != "Blueprint"){
+        <li>{{res.key}}: {{res.value}}</li>
+      }
     }
-  }
-</ul>
-<p *ngIf="resourcesNeeded.size == 0">No resources needed.</p>
-
-<p>test</p>
+  </ul>
+  <p *ngIf="resourcesNeeded.size == 0">No resources needed.</p>
+</body>
