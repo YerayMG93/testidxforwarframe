@@ -3,21 +3,24 @@ import { MatCardModule } from '@angular/material/card';
 import { ItemCardComponent } from '../item-card/item-card.component';
 import { LocalService } from '../../Services/local/local.service';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-completed-list',
   standalone: true,
-  imports: [MatCardModule, ItemCardComponent, FormsModule],
+  imports: [MatCardModule, ItemCardComponent, FormsModule, RouterModule],
   templateUrl: './completed-list.component.html',
   styleUrl: './completed-list.component.css'
 })
 export class CompletedListComponent {
   itemList: any[] = [];
   fname: any;
+  router: Router;
   title = 'Completed List';
 
-  constructor(private localStorage: LocalService) {
+  constructor(private localStorage: LocalService, router: Router) {
     this.loadItems();
+    this.router = router;
   } 
 
   loadItems(data?:string) {
@@ -38,7 +41,9 @@ export class CompletedListComponent {
       }
     }
   }
-
+  goToList(){
+    this.router.navigate(['/list']);
+  }
   ngOnInit(): void{
     document.addEventListener('click', (event) => {
       if((event.target as HTMLElement).nodeName == "BUTTON") this.loadItems(this.fname);

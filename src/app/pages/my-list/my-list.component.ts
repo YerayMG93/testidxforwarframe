@@ -3,21 +3,24 @@ import { MatCardModule } from '@angular/material/card';
 import { ItemCardComponent } from '../item-card/item-card.component';
 import { LocalService } from '../../Services/local/local.service';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-my-list',
   standalone: true,
-  imports: [MatCardModule, ItemCardComponent, FormsModule],
+  imports: [MatCardModule, ItemCardComponent, FormsModule, RouterModule],
   templateUrl: './my-list.component.html',
   styleUrl: './my-list.component.css'
 })
 export class MyListComponent implements OnInit{
   itemList: any[] = [];
   fname: any;
+  router: Router;
   title = 'My list';
 
-  constructor(private localStorage: LocalService) {
+  constructor(private localStorage: LocalService, router: Router) {
     this.loadItems();
+    this.router = router;
   } 
 
   loadItems(data?:string) {
@@ -37,6 +40,10 @@ export class MyListComponent implements OnInit{
           this.itemList.push(this.localStorage.getObjectData(list[i]));
       }
     }
+  }
+
+  goToList(){
+    this.router.navigate(['/list']);
   }
 
   ngOnInit(): void{

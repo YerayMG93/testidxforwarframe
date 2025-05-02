@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit{
       if(!tempItem.isCompleted){
         let ressources = tempItem.components;
         for (let item of ressources){
-          console.log(item);
           if (this.resourcesNeeded.has(item.name)){
             this.resourcesNeeded.set(item.name, this.resourcesNeeded.get(item.name)! + item.itemCount);
           } else {
