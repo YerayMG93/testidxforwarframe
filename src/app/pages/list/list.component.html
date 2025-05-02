@@ -1,6 +1,7 @@
 <form id="searchbar" action="javascript:void(0);">
-  <label for="fname">Filter by name:</label><br>
-  <input type="text" id="fname" name="fname" [(ngModel)]="fname" placeholder="Write what you search for">
+  <!--<label for="fname">Filter by name:</label><br>-->
+  <h2 for="fname">Filter by name:</h2>
+  <input type="text" id="fname" name="fname" [(ngModel)]="fname" placeholder="Write what you search for (Example: Soma)">
   <input type="submit" value="Search" (click)="search()">
 </form>
 

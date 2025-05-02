@@ -8,14 +8,14 @@
 
 @else {
     <div class="no-empty-state">
-        
         <form id="searchbar" action="javascript:void(0);">
-            <label for="fname">Filter by name:</label><br>
+            <!-- <label for="fname">Filter by name:</label><br> -->
             <input type="text" id="fname" name="fname" [(ngModel)]="fname" placeholder="Write what you search for">
             <input type="submit" value="Search" (click)="loadItems(fname)">
         </form>
-        <p> Everything you completed is here: </p>
+        <br>
         <div class="list">
+            <h2> Everything you completed is here: </h2>
             @for (item of itemList; track item.name) {
                 <app-item-card [item]="item"></app-item-card>
               }

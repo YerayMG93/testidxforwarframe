@@ -10,9 +10,6 @@
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    margin: 2rem auto;
-    padding: 1rem;
-    max-width: 600px;
   }
   
   #searchbar input[type="text"] {
