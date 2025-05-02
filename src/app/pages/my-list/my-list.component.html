@@ -1,20 +1,23 @@
-<h1>
-{{title}}
-</h1>
-<form id="searchbar" action="javascript:void(0);">
-    <label for="fname">Filter by name:</label><br>
-    <input type="text" id="fname" name="fname" [(ngModel)]="fname" placeholder="write what you search for">
-    <input type="submit" value="Search" (click)="loadItems(fname)">
-</form>
-
 @if (itemList.length == 0){
-    <p> This place is empty, go grab things in the search page.</p>
+    <div class="empty-state">
+        <h2>This place is empty!</h2>
+        <p> Go grab things in the search page.</p>
+        <button>Browse Components</button>
+    </div>   
 }
 @else {
-    <p> Everything you listed is here: </p>
+    <div class="no-empty-state">
+        <form id="searchbar" action="javascript:void(0);">
+            <label for="fname">Filter by name:</label><br>
+            <input type="text" id="fname" name="fname" [(ngModel)]="fname" placeholder="Write what you search for">
+            <input type="submit" value="Search" (click)="loadItems(fname)">
+        </form>
+        <p> Everything you listed is here: </p>
+        <div class="list">
+            @for (item of itemList; track item.name) {
+                <app-item-card [item]="item"></app-item-card>
+              }
+        </div>
+    </div>
+   
 }
-<div class="list">
-    @for (item of itemList; track item.name) {
-        <app-item-card [item]="item"></app-item-card>
-      }
-</div>
