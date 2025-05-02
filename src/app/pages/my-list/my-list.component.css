@@ -1,23 +1,83 @@
-h1 {
-    margin-top: 3em;
-  }
-
-  app-item-card{
-    display: flex;
-    flex-direction:column;
-    align-items: stretch;
-    float: left;
-    width: 25%;
-    height: 50%;
+.page-title {
+  margin-top: 3em;
+  text-align: center;
+  color: #138764;
+  font-size: 2rem;
 }
-@media (max-width: 600px) {
-    
-    app-item-card{
-        display: flex;
-        flex-direction: row;
-        width:100%;      
-        height: fit-content;
-        align-items: center;
-        float: left;       
-    }
-  }
+
+#searchbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#searchbar input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #138764;
+  border-radius: 6px;
+}
+
+#searchbar button,
+#searchbar input[type="submit"] {
+  background-color: #138764;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#searchbar button:hover,
+#searchbar input[type="submit"]:hover {
+  background-color: #0e5c4c;
+}
+
+.feedback-message {
+  text-align: center;
+  margin: 1rem auto;
+  font-style: italic;
+  color: #666;
+}
+
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+app-item-card {
+  flex: 1 1 300px;
+  max-width: 300px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #555;
+}
+
+.no-empty-state {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+}
+
+button {
+  background-color: #138764;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background-color: #0a5e4c;
+}

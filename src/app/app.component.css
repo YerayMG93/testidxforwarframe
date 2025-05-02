@@ -1,20 +1,10 @@
-*{
-    margin: 0em;
-    padding: 0em;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-router-outlet {
-    margin-top: 3em;
-}
-
-#header {
-  display: inline-block;
-  width: 100%;
-  background-color: #2b3e2faa;
-  color: #fff;
-  padding: 1em 0em 1em 0em;
-  position: fixed;
-  top: 0;
-  left:0;
-  z-index: 100;
+.content {
+  margin-top: 60px;
+  padding: 16px;
 }
