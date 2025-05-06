@@ -16,6 +16,6 @@
   <div *ngIf="resourcesNeeded.size == 0" class="empty-state">
     <h2>You're all set!</h2>
     <p>There are no crafting resources needed right now.</p>
-    <button>Browse Components</button>
+    <button (click)="goToList()">Browse Components</button>
   </div>
 </body>
