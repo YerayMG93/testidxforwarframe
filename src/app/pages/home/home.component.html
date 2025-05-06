@@ -6,9 +6,7 @@
   
     <ul>
       @for( res of resourcesNeeded | keyvalue; track res.key){
-        @if(res.key != "Blueprint"){
-          <li>{{res.key}}: {{res.value}}</li>
-        }
+        <li>{{res.key}}: {{res.value}}</li>
       }
     </ul>
   </div>

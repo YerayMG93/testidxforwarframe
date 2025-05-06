@@ -16,7 +16,7 @@ import { ItemCardComponent } from '../item-card/item-card.component';
 export class ListComponent {
   title = 'Search list';
   list:any[] = [];
-  error = "Start searching for what you want to craft";
+  error = "";
   myList:any[] = [];
   fname = "";
   api: ApiServiceService;
@@ -24,24 +24,32 @@ export class ListComponent {
   constructor(private apiService: ApiServiceService) {
     this.api = apiService;
   }
-  
+    //Search for items in the API.
     search() {
-      this.list = [];
+      //if searchbar is empty do nothing.
+      if(this.fname !== ""){
         const loading = document.getElementById('loading');
+        this.list = [];
+        //loading animation start
         loading?.classList.add("custom-loader");
         loading?.classList.remove("hidden");
 
-      this.api.searchItem(this.fname).subscribe((data:any) => {
-        this.list = data.filter((item:any) =>
-          item.components && item.components.length > 0
-        );
-        if (this.list.length == 0) {
-          this.error = "No items found";
-        } else {
-          this.error = "";
-        }
-        loading?.classList.remove("custom-loader");
-        loading?.classList.add("hidden");
-      });
+        //get items from API
+        this.api.searchItem(this.fname).subscribe((data:any) => {
+          console.log(data);
+          this.list = data.filter((item:any) =>
+            item.components && item.components.length > 0
+          );
+          //show error if empty list
+          if (this.list.length == 0) {
+            this.error = "No items found";
+          } else {
+            this.error = "";
+          }
+          //loading animation end
+          loading?.classList.remove("custom-loader");
+          loading?.classList.add("hidden");
+        });
+      }
     }
 }

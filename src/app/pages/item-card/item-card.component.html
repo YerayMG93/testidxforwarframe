@@ -1,5 +1,5 @@
 <mat-card class="card">
-    <img class="card-image" [src]="item.wikiaThumbnail" />
+    <img class="card-image" [src]="item.wikiaThumbnail || 'assets/images/no_img.png'" />
   
     <div class="card-main-content">
       <div class="card-title">{{ item.name }}</div>

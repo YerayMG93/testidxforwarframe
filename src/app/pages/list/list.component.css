@@ -5,6 +5,12 @@
     font-size: 2rem;
   }
   
+  .error{
+    color: red;
+    text-align: center;
+    padding-top: 2em;
+  }
+
   #searchbar {
     display: flex;
     flex-direction: column;

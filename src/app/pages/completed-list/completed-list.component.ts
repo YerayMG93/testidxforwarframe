@@ -23,6 +23,7 @@ export class CompletedListComponent {
     this.router = router;
   } 
 
+  //Loads the list of items and filters the completed ones.
   loadItems(data?:string) {
     this.itemList = [];
     let tempItem:any;
@@ -44,9 +45,16 @@ export class CompletedListComponent {
   goToList(){
     this.router.navigate(['/list']);
   }
+
+  //check whenever i click on buttons to refresh the list of completed items
   ngOnInit(): void{
     document.addEventListener('click', (event) => {
       if((event.target as HTMLElement).nodeName == "BUTTON") this.loadItems(this.fname);
+      //If the list is empty, reload and empty the searchbar
+      if((event.target as HTMLElement).nodeName == "BUTTON" && this.itemList.length == 0) {
+        this.fname = "";
+        this.loadItems();
+      }
     });
   }
 }
