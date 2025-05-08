@@ -4,11 +4,14 @@
   <div *ngIf="resourcesNeeded.size > 0" class="noempty-state">
     <p>Here is what you need to craft the things you want in your list.</p>
   
-    <ul>
+    <div>
       @for( res of resourcesNeeded | keyvalue; track res.key){
-        <li>{{res.key}}: {{res.value}}</li>
+        <p class="resource">
+          <input type="checkbox" [ngClass]="res.key" (click)="mark(res.key)">
+          <span [ngClass]="res.key" (click)="mark(res.key)">{{res.key}}: {{res.value}}</span>
+        </p>
       }
-    </ul>
+    </div>
   </div>
   
   <div *ngIf="resourcesNeeded.size == 0" class="empty-state">

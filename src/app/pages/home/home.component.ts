@@ -33,11 +33,22 @@ export class HomeComponent implements OnInit{
     this.router.navigate(['/list']);
   }
 
+  //Function to mark / unmark checkbox, update span status.
+  mark(resKey:string){
+    const checkbox = document.getElementsByClassName(resKey);
+    if(checkbox[0].getAttribute("checked")){
+      checkbox[0].removeAttribute("checked");
+      checkbox[1].classList.remove("checked");
+    }else{
+      checkbox[0].setAttribute("checked","true");
+      checkbox[1].classList.add("checked");
+    }
+  }
+
   //Reads all items from local storage and sums the ressources needed to craft them.
   sumRessources(itemSearch:string){
     let tempItem = this.ls.getObjectData(itemSearch);
     if(!tempItem.isCompleted){
-      console.log(tempItem);
       let ressources = tempItem.components;
       for (let item of ressources){
         //Filter the resource name to show on resource map.

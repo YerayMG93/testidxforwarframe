@@ -12,6 +12,12 @@ body {
 p {
   margin: 2%;
 }
+p.resource{
+  margin: 1em;
+}
+span.checked{
+  text-decoration: line-through;
+}
 
 .empty-state {
   text-align: center;
